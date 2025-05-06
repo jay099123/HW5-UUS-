@@ -1,0 +1,2 @@
+# 模擬學作業五
+原本是想產生一個list，去儲存每個job的完工時間，新的job到來的時候再去遍歷這個list決定哪些server是idle的，但後來發現這樣會產生很多重複的值，也沒辦法準確的判斷idle server，所以後來改為新增一個紀錄每個server當前的Makespan，當有新的job完工再去更新這個list。

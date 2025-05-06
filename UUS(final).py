@@ -97,6 +97,7 @@ while True:
 
     total_wait = sum(W)
     print("Average waiting time:", round(total_wait/n, 4))
+    print("Makespan: ", round(serverMS[-1], 4))
 
     repeat = input("Do you want to run the simulation again? (y/n): ").strip().lower()
     if repeat == "n":
