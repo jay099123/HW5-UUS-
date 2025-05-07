@@ -12,34 +12,15 @@ Inputting the parameters for the simulation
 4. Number of jobs
 
 """
-def get_valid_float(prompt, min_value=0):
-    while True:
-        try:
-            value = float(input(prompt))
-            if value < min_value:
-                print(f"Value must be at least {min_value}.")
-            else:
-                return value
-        except ValueError:
-            print("Please enter a valid number.")
 
-def get_valid_int(prompt, min_value=1):
-    while True:
-        try:
-            value = int(input(prompt))
-            if value < min_value:
-                print(f"Value must be at least {min_value}.")
-            else:
-                return value
-        except ValueError:
-            print("Please enter a valid integer.")
 while True:
-    a = get_valid_float("Enter lower bound for interarrival time: ")
-    b = get_valid_float("Enter upper bound for interarrival time: ", min_value=a + 0.01)
-    c = get_valid_float("Enter lower bound for service time: ")
-    d = get_valid_float("Enter upper bound for service time: ", min_value=a + 0.01)
-    S = get_valid_int("Enter the number of servers: ")
-    n = get_valid_int("Enter the number of jobs: ")
+
+    a = float(input("Enter lower bound for interarrival time: "))
+    b = float(input("Enter upper bound for interarrival time: "))
+    c = float(input("Enter lower bound for service time: "))
+    d = float(input("Enter upper bound for service time: "))
+    S = int(input("Enter the number of servers: "))
+    n = int(input("Enter the number of jobs: "))
 
     """
     Setting lists and variables for the simulation
@@ -97,7 +78,7 @@ while True:
 
     total_wait = sum(W)
     print("Average waiting time:", round(total_wait/n, 4))
-    print("Makespan: ", round(serverMS[-1], 4))
+    print("Makespan: ", round(max(serverMS), 4))
 
     repeat = input("Do you want to run the simulation again? (y/n): ").strip().lower()
     if repeat == "n":
